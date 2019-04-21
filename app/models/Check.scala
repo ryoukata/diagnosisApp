@@ -9,6 +9,8 @@ object Check {
   val checkForm: Form[CheckForm] = Form {
     mapping(
       "userName" -> nonEmptyText
+        .verifying(error="15文字以内で入力してください", constraint=_.length <= 15)
+        .verifying(error="Twitterと同じ形式で入力してください。", constraint=_.matches("""[\\w]+"""))
     )(CheckForm.apply)(CheckForm.unapply)
   }
 }
