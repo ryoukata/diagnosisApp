@@ -5,6 +5,8 @@ package models.services.Model
  * T: モデルクラスを継承したものとして定義
  */
 trait ModelService {
+  type T
+
   // 指定のIDのレコードを１つ抽出
   def findById(id: Long): Option[T]
 
