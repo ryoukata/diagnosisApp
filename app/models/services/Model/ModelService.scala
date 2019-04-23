@@ -1,12 +1,12 @@
 package models.services.Model
 
+import models.Check
+
 /*
  * モデルに関するトレイト（他のサービスクラスでも利用可能にしている）
  * T: モデルクラスを継承したものとして定義
  */
-trait ModelService {
-  type T
-
+trait ModelService[T <: Check] {
   // 指定のIDのレコードを１つ抽出
   def findById(id: Long): Option[T]
 
